@@ -1,6 +1,15 @@
-from stats import get_word_count
+from stats import get_word_count,  get_chars, sorted_dicts
 
 def main():
-    print(f"{get_word_count(get_book_text('books/frankenstein.txt'))} words found in the document") 
+    print("============ BOOKBOT ============")
+    print("Analyzing book found at books/frankenstein.txt...")
+    print("----------- Word Count ----------")
+    print(f"Found {get_word_count('books/frankenstein.txt')} total words") 
+    print("--------- Character Count -------")
+    for item in sorted_dicts('books/frankenstein.txt'):
+        if item['char'].isalpha():
+            print(f"{item['char']}: {item['num']}")
+
+    print("============= END ===============")
 
 main()
